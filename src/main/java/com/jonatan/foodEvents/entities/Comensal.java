@@ -1,0 +1,32 @@
+package com.jonatan.foodEvents.entities;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+
+@Entity
+@Table
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Comensal {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;
+    private String apellidos;
+    private Boolean infantil;
+    private Boolean alergeno;
+
+
+    @ManyToOne
+    @JoinColumn(name = "mesa", foreignKey = @ForeignKey(name = "fk_comensal_mesa"))
+    private Mesa mesa;
+
+}
