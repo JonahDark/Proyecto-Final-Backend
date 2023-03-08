@@ -1,5 +1,5 @@
 package com.jonatan.foodEvents.entities;
 
-public enum TipoMenu {
+public enum TipoMenuDecoracion {
     PREMIUM, STANDAR, LOWCOST
 }

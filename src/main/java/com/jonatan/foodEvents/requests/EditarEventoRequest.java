@@ -35,6 +35,6 @@ public class EditarEventoRequest
     private Ubicacion ubicacion;
     private Menu menu;
     private Double precio_total;
-    private Boolean pagado;
+    private Boolean pago_confirmado;
     private User usuario;
 }

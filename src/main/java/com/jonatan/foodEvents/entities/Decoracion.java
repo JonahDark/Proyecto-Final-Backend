@@ -18,7 +18,7 @@ public class Decoracion {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private TipoMenu tipo;
+    private TipoMenuDecoracion tipo;
     private String nombre;
     private Double precio;
     private String foto;

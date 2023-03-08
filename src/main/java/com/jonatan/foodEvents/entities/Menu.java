@@ -18,9 +18,9 @@ public class Menu {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private TipoMenu tipo;
+    private TipoMenuDecoracion tipo;
     private String nombre;
-    private Double precio;
+    private Double precio_menu;
     private String foto;
     private Double precio_menu_infantil;
     private Double precio_menu_alergeno;

@@ -49,15 +49,6 @@ public class MesaServiceImpl implements MesaService {
         Mesa mesa = new Mesa();
         BeanUtils.copyProperties(crearMesaRequest, mesa);
         mesa.setMesa_evento(optionalEvento.get());
-        if(crearMesaRequest.getTipoMesa().toString().equals("Redonda")){
-            mesa.setNum_max_comensales(3);
-        }
-        if(crearMesaRequest.getTipoMesa().toString().equals("Larga")){
-            mesa.setNum_max_comensales(50);
-        }
-        if(crearMesaRequest.getTipoMesa().toString().equals("MediaLuna")){
-            mesa.setNum_max_comensales(10);
-        }
         return mesaRepository.save(mesa);
     }
 
@@ -72,6 +63,8 @@ public class MesaServiceImpl implements MesaService {
 
     @Override
     public Mesa editarMesa(Long id_mesa, CrearOEditarMesaRequest crearMesaRequest) {
+        int numComensalesMaxMesa = 0;
+        int numComensalesMesa = 0;
         Optional<Mesa> optionalMesa = mesaRepository.findById(id_mesa);
         if(!optionalMesa.isPresent()){
             throw new EntityNotFoundException("No existe una mesa con el id indicado");

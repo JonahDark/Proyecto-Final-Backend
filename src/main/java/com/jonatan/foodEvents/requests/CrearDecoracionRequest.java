@@ -6,14 +6,11 @@ import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 @Data
-public class CrearMenuRequest {
+public class CrearDecoracionRequest {
+
     @Enumerated(EnumType.STRING)
     private TipoMenuDecoracion tipo;
-
     private String nombre;
-    private Double precio_menu;
+    private Double precio;
     private String foto;
-    private Double precio_menu_infantil;
-    private Double precio_menu_alergeno;
-    private Double precio_menu_alergeno_infantil;
 }

@@ -74,7 +74,7 @@ public class EventoServiceImpl implements EventoService {
 
         Evento evento = optionalEvento.get();
         evento.setPrecio_total(editarEventoRequest.getPrecio_total());
-        evento.setPagado(editarEventoRequest.getPagado());
+        evento.setPago_confirmado(editarEventoRequest.getPago_confirmado());
         evento.setFecha(editarEventoRequest.getFecha());
         evento.setTipo(editarEventoRequest.getTipo());
         evento.setNombre(editarEventoRequest.getNombre());

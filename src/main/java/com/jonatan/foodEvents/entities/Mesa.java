@@ -14,7 +14,6 @@ import java.util.List;
 @Table
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class Mesa {
     @Id
@@ -25,8 +24,17 @@ public class Mesa {
     private TipoMesa tipoMesa;
 
     private String nombre;
-    private Integer num_max_comensales;
+    private Integer num_max_comensales_redonda;
+    private Integer num_max_comensales_larga;
+    private Integer num_max_comensales_media_luna;
 
+    public Mesa() {
+        this.num_max_comensales_redonda = 3;
+        this.num_max_comensales_larga=50;
+        this.num_max_comensales_media_luna=16;
+
+
+    }
 
     @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "mesa")
@@ -35,8 +43,6 @@ public class Mesa {
     @ManyToOne
     @JoinColumn(name = "mesa_evento", foreignKey = @ForeignKey(name = "fk_mesa_evento"))
     private Evento mesa_evento;
-
-
 
 
 }

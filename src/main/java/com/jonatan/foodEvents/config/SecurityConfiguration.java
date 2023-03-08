@@ -3,6 +3,7 @@ package com.jonatan.foodEvents.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,7 +27,7 @@ public class SecurityConfiguration {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("http://localhost:4200"));
+        configuration.setAllowedOriginPatterns(List.of("http://localhost:4200","http://localhost:8080","http://localhost:8100"));
         configuration.setAllowedMethods(List.of("GET", "POST", "OPTIONS", "DELETE", "PUT", "PATCH"));
         configuration.setAllowedHeaders(List.of("Access-Control-Allow-Origin", "X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization"));
         configuration.setAllowCredentials(true);
@@ -73,6 +74,12 @@ public class SecurityConfiguration {
                 .requestMatchers("/api/createUbicacion").permitAll()
                 .requestMatchers("/api/editUbicacion/{id_ubicacion}").permitAll()
                 .requestMatchers("/api/deleteUbicacion/{id_ubicacion}").permitAll()
+                .requestMatchers("/api/createMenu").permitAll()
+                .requestMatchers("/api/editMenu/{id_menu}").permitAll()
+                .requestMatchers("/api/deleteMenu/{id_menu}").permitAll()
+                .requestMatchers("/api/createDecoracion").permitAll()
+                .requestMatchers("/api/editDecoracion/{id_decoracion}").permitAll()
+                .requestMatchers("/api/deleteDecoracion/{id_decoracion}").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

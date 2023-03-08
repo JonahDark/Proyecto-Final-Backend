@@ -8,10 +8,7 @@ import com.jonatan.foodEvents.services.auth.AuthenticationService;
 import com.jonatan.foodEvents.services.usuario.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -23,7 +20,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest request) {
-        if (usuarioService.existsByUsername(request.getUsername()) || usuarioService.existsByPhone(request.getTelefono())|| usuarioService.existsByEmail(request.getEmail())) {
+        if (usuarioService.existsByUsername(request.getUsername()) || usuarioService.existsByPhone(request.getTelefono()) || usuarioService.existsByEmail(request.getEmail())) {
             return ResponseEntity.badRequest().body(RegisterResponse.builder().usuario(null).build());
         }
         return ResponseEntity.ok(service.register(request));

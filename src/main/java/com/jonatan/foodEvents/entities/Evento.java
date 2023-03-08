@@ -38,7 +38,7 @@ public class Evento {
     private Horario horario;
 
     private Double precio_total;
-    private Boolean pagado;
+    private Boolean pago_confirmado;
 
     @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "mesa_evento")

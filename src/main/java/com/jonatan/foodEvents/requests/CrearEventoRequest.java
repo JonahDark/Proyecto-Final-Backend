@@ -36,6 +36,6 @@ public class CrearEventoRequest
     private Long id_ubicacion;
     private Long id_menu;
     private Double precio_total;
-    private Boolean pagado;
+    private Boolean pago_confirmado;
     private Long id_usuario;
 }
